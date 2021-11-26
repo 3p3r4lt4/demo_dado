@@ -4,8 +4,15 @@ void main() {
   runApp(MyApp());
 }
 
-class MyApp extends StatelessWidget {
-  const MyApp({Key? key}) : super(key: key);
+class MyApp extends StatefulWidget {
+   MyApp({Key? key}) : super(key: key);
+
+  @override
+  State<MyApp> createState() => _MyAppState();
+}
+
+class _MyAppState extends State<MyApp> {
+  int numberdiceleft =4;
 
   @override
   Widget build(BuildContext context) {
@@ -16,9 +23,13 @@ class MyApp extends StatelessWidget {
             children: [
               Expanded(
                 child: TextButton(
-                  child: Image.asset("assets/images/dice1.png"),
+                  child: Image.asset("assets/images/dice$numberdiceleft.png"),
                   onPressed: () {
-                    print("hola mundo");
+                    numberdiceleft=6;
+                    print(numberdiceleft);
+                    setState(() {
+
+                    });
                   },
                 ),
               ),
